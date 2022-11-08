@@ -8,6 +8,8 @@ export class PedidosService {
 
   pedidos: Pedido[] = [];
 
+
+
   constructor() { 
     this.pedidos = [
       {
@@ -44,8 +46,20 @@ export class PedidosService {
 
   public cambiarEstadoPedido(id: number, entregado:boolean){
     this.pedidos.forEach(p => {
-       if(p.id == id) { p.entregado = entregado}
+       if(p.id == id) { 
+        p.entregado = entregado;
+       }
     });
+  }
+
+  public getPedido(idPed: number): Pedido{      
+    var pedido !: Pedido;
+    this.pedidos.forEach(p => {
+      if(p.id == idPed) { 
+       pedido = p;
+      }
+    });
+    return pedido;
   }
 
 }

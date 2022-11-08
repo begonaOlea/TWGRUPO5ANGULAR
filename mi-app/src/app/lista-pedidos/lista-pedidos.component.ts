@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Pedido } from '../model/pedido';
 import { LogService } from '../servicios/log.service';
 import { PedidosService } from '../servicios/pedidos.service';
@@ -14,11 +15,12 @@ export class ListaPedidosComponent implements OnInit {
   pedidos: Pedido[] = [];
 
   estadoListadoPedidos: String = 'entregado';
-  modoNuevo: boolean = false;
+  modoNuevo: boolean = true;
 
   //INJECTA UNA INSTANCIA DE LOGSERVICE
   constructor(private log: LogService, 
-              private pedidosService: PedidosService) {
+              private pedidosService: PedidosService,
+              private router: Router) {
         this.pedidos = pedidosService.getAll();
   }
 
@@ -27,15 +29,15 @@ export class ListaPedidosComponent implements OnInit {
     console.log("............");
     var a: any = 1;
     var b: any = '1';
-
     console.log("a == b: " + (a == b));
     console.log("a === b: " + (a === b));
-
   }
 
   public onAltaPedido(): void {
     //console.log('abrir formulari edicion pedido');
     this.log.info("Abrir formulario alta nuevo pedido");
+    this.router.navigate(['/pedido/edit']);
+
   }
 
   public onTerminoEntrega(id: number){

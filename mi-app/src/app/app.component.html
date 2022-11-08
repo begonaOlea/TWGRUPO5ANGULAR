@@ -1,15 +1,39 @@
+<div class="container">
+    <div class="row">
+        <div class="col">
 
-<h1> COMPONENTE APP-ROOT  </h1>
+            <!-- CABECERA -->
+            <app-cabecera></app-cabecera>
 
-<!-- CABECERA -->
-<app-cabecera></app-cabecera>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
 
-<!-- LISTA DE PEDIDOS -->
-<app-lista-pedidos></app-lista-pedidos>
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                <li class="nav-item" role="presentation" >
+                    <a routerLink="/" class="nav-link" routerLinkActive="active"
+                    [routerLinkActiveOptions]="{exact: true}"> List Pedidos</a>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <a routerLink="/pedido" class="nav-link" routerLinkActive="active"
+                    [routerLinkActiveOptions]="{exact: true}"> Detalle Pedido</a>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <a routerLink="/pedido/edit" class="nav-link" routerLinkActive="active"
+                    [routerLinkActiveOptions]="{exact: true}"> Alta Pedido</a>
+                </li>
+            </ul>
 
-<!-- DETALLE DE UN PEDIDO  -->
-<app-pedido></app-pedido>
 
-<!-- ALTA/MODIFICAR PEDIDO -->
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+           <router-outlet></router-outlet>
 
-<app-editar-pedido></app-editar-pedido>
+        </div>
+    </div>
+
+
+</div>

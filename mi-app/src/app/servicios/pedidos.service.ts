@@ -8,8 +8,6 @@ export class PedidosService {
 
   pedidos: Pedido[] = [];
 
-
-
   constructor() { 
     this.pedidos = [
       {

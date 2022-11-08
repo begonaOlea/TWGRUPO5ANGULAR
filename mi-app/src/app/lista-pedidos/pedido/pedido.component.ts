@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Pedido } from 'src/app/model/pedido';
+import { LogService } from 'src/app/servicios/log.service';
 
 @Component({
   selector: 'app-pedido',
@@ -10,7 +11,7 @@ export class PedidoComponent implements OnInit {
 
   pedido: Pedido;
 
-  constructor() { 
+  constructor(private log: LogService) { 
     this.pedido = {id:1, 
                    desc:'Zapatos',
                    entregado: false, 

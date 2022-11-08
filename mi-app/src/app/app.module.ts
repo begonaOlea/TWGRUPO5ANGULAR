@@ -10,6 +10,8 @@ import { EditarPedidoComponent } from './lista-pedidos/editar-pedido/editar-pedi
 import { LogService } from './servicios/log.service';
 import  localeEs from '@angular/common/locales/es';
 import { registerLocaleData } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { ItemPedidoComponent } from './lista-pedidos/item-pedido/item-pedido.component';
 
 @NgModule({
   declarations: [
@@ -17,11 +19,13 @@ import { registerLocaleData } from '@angular/common';
     CabeceraComponent,
     ListaPedidosComponent,
     PedidoComponent,
-    EditarPedidoComponent
+    EditarPedidoComponent,
+    ItemPedidoComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
   ],
   providers: [LogService],
   bootstrap: [AppComponent]

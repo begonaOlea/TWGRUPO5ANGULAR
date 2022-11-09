@@ -9,6 +9,7 @@ export class PedidosService {
   pedidos: Pedido[] = [];
 
   constructor() { 
+    
     this.pedidos = [
       {
         id: 1,
@@ -32,6 +33,7 @@ export class PedidosService {
         entregado: false
       }
     ];
+    
   }
 
   public getAll(): Pedido[]{

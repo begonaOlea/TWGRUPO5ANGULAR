@@ -12,6 +12,7 @@ import  localeEs from '@angular/common/locales/es';
 import { registerLocaleData } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ItemPedidoComponent } from './lista-pedidos/item-pedido/item-pedido.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { ItemPedidoComponent } from './lista-pedidos/item-pedido/item-pedido.com
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    HttpClientModule
   ],
   providers: [LogService],
   bootstrap: [AppComponent]

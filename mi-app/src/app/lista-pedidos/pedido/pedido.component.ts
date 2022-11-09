@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Params } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { Pedido } from 'src/app/model/pedido';
 import { LogService } from 'src/app/servicios/log.service';
 import { PedidosService } from 'src/app/servicios/pedidos.service';
@@ -12,6 +13,7 @@ import { PedidosService } from 'src/app/servicios/pedidos.service';
 export class PedidoComponent implements OnInit {
 
   public pedido: Pedido;
+  paramsSuscription : Subscription;
 
   constructor(private log: LogService, 
               private route: ActivatedRoute,
@@ -24,8 +26,18 @@ export class PedidoComponent implements OnInit {
     */
     //route es un objeto que tiene la url acutal pedido/:id
     let id = this.route.snapshot.params['id']; 
-    this.pedido =   this.pedidoService.getPedido(id);              
+    this.pedido =   this.pedidoService.getPedido(id);    
+    //nos suscribimos al cambio de parametros de la url
+    
+    this.paramsSuscription = this.route.params.subscribe(
+        (params:Params)=> {
+                 this.pedido = this.pedidoService.getPedido(params['id']);
+        }//fin funcion
+
+    );
+    
   }
+
 
   ngOnInit(): void {
   }
